@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Javascript</title>
+		<style>
+            body{text-align: center;}
+			header{padding: 1px; background: #525050; margin-bottom: 30px;}
+			header h2{color: #fff;}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h2>Factorial number by using function</h2>
+        </header>
+		<script>
+            // simply function
+            function myFactorial(x){
+                if (0==x){
+                    return 1;
+                } else{
+                    return x*myFactorial(x-1);
+                }
+            }
+            document.write(myFactorial(5)+"<br><br>");
+
+            // function with 'prompt()' method
+            var resultPrompt = prompt("Get the factorial number:")
+            function myFactorialPrompt(x){
+                if (0==x){
+                    return 1;
+                } else{
+                    return x*myFactorialPrompt(x-1);
+                }
+            }
+            document.write(myFactorialPrompt(resultPrompt));
+		</script>
+	</body>
+</html>
