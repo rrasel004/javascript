@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Javascript</title>
+		<style>
+            body{text-align: center;}
+			header{padding: 1px; background: #525050; margin-bottom: 30px;}
+			header h2{color: #fff;}
+            table {
+                margin: 0 auto;
+                border: 1px solid #ddd;
+                padding: 20px;
+            }
+            input[type="button"] {
+                width: 100px;
+                padding: 5px;
+            }
+		</style>
+	</head>
+	<body>
+		<header>
+			<h2>Math Object</h2>
+        </header>
+        <div class="content">
+            <form action="#" name="myform">
+                <table>
+                    <tr>
+                        <td>Number Box: </td>
+                        <td><input type="text" name="getvalue"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="PI" onclick="calc('pi')"></td>
+                        <td><input type="button" value="E" onclick="calc('e')"></td>
+                        <td><input type="button" value="Log" onclick="calc('log')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="Random" onclick="calc('random')"></td>
+                        <td><input type="button" value="Absolute" onclick="calc('absolute')"></td>
+                        <td><input type="button" value="Round" onclick="calc('round')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="SQRT" onclick="calc('sqrt')"></td>
+                        <td><input type="button" value="Min" onclick="calc('min')"></td>
+                        <td><input type="button" value="Max" onclick="calc('max')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="Ceil" onclick="calc('ceil')"></td>
+                        <td><input type="button" value="Floor" onclick="calc('floor')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="Sin" onclick="calc('sin')"></td>
+                        <td><input type="button" value="Cos" onclick="calc('cos')"></td>
+                        <td><input type="button" value="Tan" onclick="calc('tan')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="Cot" onclick="calc('cot')"></td>
+                        <td><input type="button" value="Sec" onclick="calc('sec')"></td>
+                        <td><input type="button" value="Cosec" onclick="calc('cosec')"></td>
+                    </tr>
+                    <tr>
+                        <td>Result: </td>
+                        <td><input type="text" name="showresult"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <script>
+            function calc(x){
+                with(document.myform)
+                switch(x){
+                    case 'pi':
+                    showresult.value = Math.PI();
+                    break;
+
+                    case 'e':
+                    showresult.value = Math.E();
+                    break;
+                    break;
+
+                    case 'absolute':
+                    showresult.value = Math.abs(getvalue.value);
+                    break;
+                    break;
+
+                    case 'round':
+                    showresult.value = Math.round(getvalue.value);
+                    break;
+                    break;
+
+                    case 'sqrt':
+                    showresult.value = Math.sqrt(getvalue.value);
+                    break;
+                    break;
+
+                    case 'log':
+                    showresult.value = Math.log(getvalue.value);
+                    break;
+                    break;
+
+                    case 'ceil':
+                    showresult.value = Math.ceil(getvalue.value);
+                    break;
+                    break;
+
+                    case 'floor':
+                    showresult.value = Math.floor(getvalue.value);
+                    break;
+
+                    case 'sin':
+                    showresult.value = Math.sin(getvalue.value);
+                    break;
+
+                    case 'cos':
+                    showresult.value = Math.cos(convertdegree(getvalue.value));
+                    break;
+
+                    case 'tan':
+                    showresult.value = Math.tan(convertdegree(getvalue.value));
+                    break;
+
+                    case 'cot':
+                    showresult.value = Math.cotFunc(convertdegree(getvalue.value));
+                    break;
+
+                    case 'sec':
+                    showresult.value = Math.secFunc(convertdegree(getvalue.value));
+                    break;
+
+                    case 'cosec':
+                    showresult.value = Math.cosecFunc(convertdegree(getvalue.value));
+                    break;
+
+                    case 'min':
+                    alert(Math.min(getvalue.value, prompt('Put number', '0')) + ' is the min number');
+                    break;
+
+                    case 'max':
+                    alert(Math.max(getvalue.value, prompt('Put number', '0')) + ' is the max number');
+                    break;
+
+                    case 'random':
+                    showresult.value = Math.random();
+                    break;                    
+                }
+            }
+            function convertdegree(a){
+                return a*22/7/180;
+            }
+            // Add function to the Math object
+            function cot(aValue){
+                return 1/Math.tan(aValue);
+            }
+            function sec(aValue){
+                return 1/Math.cos(aValue);
+            }
+            function cosec(aValue){
+                return 1/Math.sin(aValue);
+            }
+            // Register the function
+            Math.constructor.prototype.cotFunc = cot;
+            Math.constructor.prototype.secFunc = sec;
+            Math.constructor.prototype.cosecFunc = cosec;
+        </script>
+	</body>
+</html>
