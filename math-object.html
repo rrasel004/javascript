@@ -107,7 +107,7 @@
                     break;
 
                     case 'sin':
-                    showresult.value = Math.sin(getvalue.value);
+                    showresult.value = Math.sin(convertdegree(getvalue.value));
                     break;
 
                     case 'cos':
@@ -144,7 +144,7 @@
                 }
             }
             function convertdegree(a){
-                return a*22/7/180;
+                return a*Math.PI/180;
             }
             // Add function to the Math object
             function cot(aValue){
