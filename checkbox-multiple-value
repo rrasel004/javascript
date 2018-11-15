@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <title>ES6 - JS</title>
+        <style>
+			table {
+				margin: 0 auto;
+				border: 1px solid #ddd;
+				padding: 30px;
+			}
+			input[type="button"] {
+				width: 100%;
+				padding: 5px;
+			}
+		</style>
+    </head>
+    <body>
+        <div class="main-content">
+			<form action="" name="myform" method="" onsubmit="myFunc()">
+				<table>
+					<tr>
+						<td><p>Select</p></td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="chbox" value="Javascript">Javascript<br/>
+							<input type="checkbox" name="chbox" value="PHP">PHP<br/>
+							<input type="checkbox" name="chbox" value="HTML">HTML<br/>
+							<input type="checkbox" name="chbox" value="CSS">CSS<br/>
+							<input type="checkbox" name="chbox" value="Java">Java<br/>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="Submit"></td>
+						<td><input type="reset" value="Refresh"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<script>
+			function myFunc(){
+				document.write("You selected: " + selectedValue());
+			}
+			function selectedValue(){
+				var cd = "<ul>";
+				for(i=0; i<=4; i++){
+					var myV = document.myform.chbox[i];
+					if (myV.checked){
+						cd += "<li>"+myV.value;
+					}
+				}
+				cd += "</ul>";
+				return cd;
+			}
+		</script>
+    </body>
+</html>
