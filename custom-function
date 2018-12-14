@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>position demo</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+	<style></style>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+	</head>
+	<body>
+		<form action="" id="myForm">
+			<table>
+				<tr>
+					<td>Name: </td>
+					<td><input type="text" id="getInfo"></td>
+				</tr>
+				<tr>
+					<td>Email: </td>
+					<td><input type="text" id="getInfo"></td>
+				</tr>
+				<tr>
+					<td>Website: </td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<td> </td>
+					<td><button id="btn" type="submit">Submit</button></td>
+				</tr>
+			</table>
+		</form>
+		<div id="show"></div>
+		<script>
+			$(document).ready(function(){
+				$("#btn").click(function(e){
+					var validInfo = true;
+					$("input#getInfo").each(function(){
+						if(($(this).val()) == ''){
+							validInfo = false;
+							$(this).css({
+								"background" : "red"
+							})
+						}else{
+							$(this).css({
+								"background" : ""
+							})
+						}
+					});
+
+					if (validInfo == false){
+						e.preventDefault();
+					}else{
+						clear();					
+						document.getElementById("show").innerHTML = "Thanks for submitting...";
+						return false;
+					}
+				});
+			})
+			function clear(){
+				$("#myForm input").each(function(){
+					$(this).val("")
+				});
+			}
+		</script>	
+	</body>
+</html>
