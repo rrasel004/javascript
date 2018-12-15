@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>position demo</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>	</head>
+	<body>
+		<div id="show">
+			<ul></ul>
+		</div>
+		<script>
+			$(document).ready(function(){
+				myFunc();
+				autoLoad();
+			});
+			function myFunc(){
+				$.ajax({
+					url: "ajax-intro.xml",
+					dataType: "xml",
+					success: function(data){
+						$("ul").children().remove();
+						$(data).find("employee").each(function(){
+							var myData = '<li>Name: '+$(this).find("name").text()+'</li><li>Email: '+$(this).find("email").text()+'</li><li>Website: '+$(this).find("website").text()+'</li>';
+							$("ul").append(myData);
+						});
+					},
+					error: function(){
+						$("ul").append("Error");
+					}
+				})
+			}
+			function autoLoad(){
+				setTimeout(function(){
+					myFunc();
+					autoLoad();
+				}, 1)
+			}
+		</script>	
+	</body>
+</html>
